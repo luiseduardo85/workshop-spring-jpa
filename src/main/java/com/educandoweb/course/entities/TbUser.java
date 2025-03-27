@@ -1,21 +1,30 @@
 package com.educandoweb.course.entities;
 
+
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable {
+@Entity
+@Table(name = "tb_user")
+public class TbUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String email;
     private String phone;
     private String password;
 
-    public User() {
+    public TbUser() {
     }
 
-    public User(Long id, String name, String email, String phone, String password) {
+    public TbUser(Long id, String name, String email, String phone, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -65,7 +74,7 @@ public class User implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof User user)) return false;
+        if (!(o instanceof TbUser user)) return false;
         return Objects.equals(id, user.id);
     }
 
