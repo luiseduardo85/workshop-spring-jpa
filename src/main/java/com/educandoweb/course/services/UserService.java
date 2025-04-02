@@ -22,7 +22,12 @@ public class UserService {
         Optional<TbUser> obj =  userRepository.findById(id);
         return obj.get();
     }
+
     public TbUser insert(TbUser obj){
         return userRepository.save(obj);
+    }
+
+    public void delete(Long id){
+        userRepository.deleteById(id);
     }
 }
